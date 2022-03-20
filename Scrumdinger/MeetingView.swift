@@ -29,6 +29,9 @@ struct MeetingView: View {
                     Label("600", systemImage: "hourglass.tophalf.fill")
                 }
             }
+            .accessibilityElement(children: .ignore) // ignore the inferred accessibility labes and values for the child views of the header
+            .accessibilityLabel("Time remaining") // added an acessibility label, pass a meaningful name to the label
+            .accessibilityValue("10 minutes") // added an acessibility value, cause we ignored the values in the child views
             Circle() // add a cricle
                 .strokeBorder(lineWidth: 24)
             HStack {
@@ -38,6 +41,7 @@ struct MeetingView: View {
                     Image(systemName: "forward.fill") // added a button with forward image
                 }
             }
+            .accessibilityLabel("Next speaker") // added accessibility label to describe the forward button
         }
         .padding() // bring the views in from the edges
     }
