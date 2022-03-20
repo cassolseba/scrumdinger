@@ -16,16 +16,30 @@ struct MeetingView: View {
         VStack {
             ProgressView(value: 5, total: 15) // percentage of time elapsed during the scrum
             HStack {
-                VStack {
+                // leading (left) and trailing (right) alignemnt override default (center)
+                VStack(alignment: .leading) {
                     Text("Seconds Elapsed")
+                        .font(.caption) // modifier, reduce the font size
                     Label("300", systemImage: "hourglass.bottomhalf.fill") // use embedded SF Symbols, treated like font
                 }
-                VStack {
+                Spacer()
+                VStack(alignment: .trailing) {
                     Text("Second Remaining")
+                        .font(.caption) // we can use multiple modifier, stacked vertically
                     Label("600", systemImage: "hourglass.tophalf.fill")
                 }
             }
+            Circle() // add a cricle
+                .strokeBorder(lineWidth: 24)
+            HStack {
+                Text("Speaker 1 of 3")
+                Spacer()
+                Button(action: {}) {
+                    Image(systemName: "forward.fill") // added a button with forward image
+                }
+            }
         }
+        .padding() // bring the views in from the edges
     }
 }
 
