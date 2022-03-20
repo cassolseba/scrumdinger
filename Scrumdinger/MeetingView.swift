@@ -13,8 +13,19 @@ import SwiftUI
 struct MeetingView: View {
     var body: some View {
         // change the content of the body
-        ProgressView(value: 5, total: 15)
-        // percentage of time elapsed during the scrum
+        VStack {
+            ProgressView(value: 5, total: 15) // percentage of time elapsed during the scrum
+            HStack {
+                VStack {
+                    Text("Seconds Elapsed")
+                    Label("300", systemImage: "hourglass.bottomhalf.fill") // use embedded SF Symbols, treated like font
+                }
+                VStack {
+                    Text("Second Remaining")
+                    Label("600", systemImage: "hourglass.tophalf.fill")
+                }
+            }
+        }
     }
 }
 
